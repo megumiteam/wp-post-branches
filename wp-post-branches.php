@@ -282,3 +282,12 @@ function wpbs_admin_notice_saved() {
 	echo '<div id="wpbs_notice" class="updated fade"><p></p></div>';
 
 }
+
+add_filter( 'display_post_states', 'wpbs_display_branch_stat' );
+function wpbs_display_branch_stat( $stat ) {
+	global $post;
+	if ( $org_id = get_post_meta( $post->ID, '_wpbs_pre_post_id', true ) ) {
+		$stat[] = sprintf( __( 'Branch of %d', WPBS_DOMAIN ), $org_id );
+	}
+	return $stat;
+}
