@@ -117,9 +117,11 @@ function wpbs_pre_post_update( $id ) {
 		}
 
 		add_post_meta($draft_id, '_wpbs_pre_post_id', $id);
-
-		wp_safe_redirect( admin_url( 'post.php?post=' . $draft_id . '&action=edit' ) );
-		exit;
+		
+		if ( ! defined( 'DOING_CRON' ) || ! DOING_CRON ) {
+			wp_safe_redirect( admin_url( 'post.php?post=' . $draft_id . '&action=edit' ) );
+			exit;
+		}
 	}
 }
 
