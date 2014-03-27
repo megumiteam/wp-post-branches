@@ -1,9 +1,9 @@
 === WP Post Branches ===
-Contributors: horike
+Contributors: horike, jim912
 Tags:  post, post type, branch
 Requires at least: 3.7.1
 Tested up to: 3.7.1
-Stable tag: 2.3
+Stable tag: 2.3.2
 
 WP Post Branches will create a private branch of an post in public. When you publish a branch, overwrite the original post.
 
@@ -49,3 +49,9 @@ Please contact to me.
 
 = 2.3 =
 * apply custom post_type
+
+= 2.3.1 =
+* Skip redirect when defined DOING_CRON
+
+= 2.3.2 =
+* Add branch message in posts list
