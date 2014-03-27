@@ -18,3 +18,6 @@ msgstr ""
 
 msgid "This post is a copy of the post id <a href='%s' target='__blank' >%s</a> Overwrite the original post by pressing the publish button."
 msgstr ""
+
+msgid "Branch of %d"
+msgstr ""
