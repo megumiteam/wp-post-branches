@@ -4,7 +4,7 @@ Plugin Name: WP Post Branches
 Author: Horike Takahiro
 Plugin URI: http://www.kakunin-pl.us
 Description: Create branches of posts.
-Version: 2.3.2
+Version: 2.3.3
 Author URI: http://www.kakunin-pl.us
 Domain Path: /languages
 Text Domain: wp_post_branches
@@ -41,6 +41,8 @@ function wpbs_pre_post_update( $id ) {
 		$pub = get_post( $id, ARRAY_A );
 		unset( $pub['ID'] );
 		$pub['post_status'] = 'draft';
+		$pub['post_name']   = $pub['post_name'] . '-branch';
+
 		$pub = apply_filters( 'wpbs_pre_publish_to_draft_post', $pub );
 		$draft_id = wp_insert_post( $pub );
 

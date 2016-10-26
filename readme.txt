@@ -55,3 +55,6 @@ Please contact to me.
 
 = 2.3.2 =
 * Add branch message in posts list
+
+= 2.3.3 =
+* Bug fix
