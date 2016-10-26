@@ -2,7 +2,7 @@
 Contributors: horike, jim912
 Tags:  post, post type, branch
 Requires at least: 3.7.1
-Tested up to: 3.7.1
+Tested up to: 4.6.1
 Stable tag: 2.3.2
 
 WP Post Branches will create a private branch of an post in public. When you publish a branch, overwrite the original post.
