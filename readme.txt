@@ -1,5 +1,5 @@
 === WP Post Branches ===
-Contributors: horike, jim912
+Contributors: horike,amimotoami,webnist,wokamoto,gatespace,mt8biz
 Tags:  post, post type, branch
 Requires at least: 3.7.1
 Tested up to: 4.6.1
