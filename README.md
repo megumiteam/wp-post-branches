@@ -3,7 +3,7 @@ Contributors: horike,amimotoami,webnist,wokamoto,gatespace,mt8biz
 Tags:  post, post type, branch
 Requires at least: 3.7.1
 Tested up to: 4.6.1
-Stable tag: 2.3.2
+Stable tag: 2.3.4
 
 WP Post Branches will create a private branch of an post in public. When you publish a branch, overwrite the original post.
 
@@ -15,11 +15,6 @@ WP Post Branches will create a private branch of an post in public. When you pub
 * Japanese(ja) - [Horike Takahiro](http://twitter.com/horike37)
 
 You can send your own language pack to me.
-
-Please contact to me.
-
-* @[horike37](http://twitter.com/horike37) on twitter
-* [Horike Takahiro](https://www.facebook.com/horike.takahiro) on facebook
 
 = Contributors =
 * [Horike Takahiro](http://twitter.com/horike37)
@@ -56,5 +51,5 @@ Please contact to me.
 = 2.3.2 =
 * Add branch message in posts list
 
-= 2.3.3 =
+= 2.3.4 =
 * Bug fix
