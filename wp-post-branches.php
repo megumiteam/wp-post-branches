@@ -12,7 +12,7 @@ Text Domain: wp_post_branches
 
 if ( ! defined( 'WPBS_DOMAIN' ) )
 	define( 'WPBS_DOMAIN', 'wp_post_branches' );
-	
+
 if ( ! defined( 'WPBS_PLUGIN_URL' ) )
 	define( 'WPBS_PLUGIN_URL', plugins_url() . '/' . dirname( plugin_basename( __FILE__ ) ));
 
@@ -60,12 +60,12 @@ function wpbs_pre_post_update( $id ) {
 
 			$values = get_post_custom_values($key, $id );
 			foreach ( $values as $value ) {
-				add_post_meta( $draft_id, $key, $value );
+				add_post_meta( $draft_id, $key, maybe_unserialize($value) );
 			}
 		}
 
 		//attachment
-		$args = array( 'post_type' => 'attachment', 'numberposts' => -1, 'post_status' => null, 'post_parent' => $id ); 
+		$args = array( 'post_type' => 'attachment', 'numberposts' => -1, 'post_status' => null, 'post_parent' => $id );
 		$attachments = get_posts( $args );
 		if ($attachments) {
 			foreach ( $attachments as $attachment ) {
@@ -101,7 +101,7 @@ function wpbs_pre_post_update( $id ) {
 				foreach ( (array) $keys as $key ) {
 					$value = get_post_meta( $attachment->ID, $key, true );
 
-				add_post_meta( $attachment_newid, $key, $value );
+				add_post_meta( $attachment_newid, $key, maybe_unserialize($value) );
 				}
 			}
 		}
@@ -119,7 +119,7 @@ function wpbs_pre_post_update( $id ) {
 		}
 
 		add_post_meta($draft_id, '_wpbs_pre_post_id', $id);
-		
+
 		if ( ! defined( 'DOING_CRON' ) || ! DOING_CRON ) {
 			wp_safe_redirect( admin_url( 'post.php?post=' . $draft_id . '&action=edit' ) );
 			exit;
@@ -192,13 +192,13 @@ function wpbs_save_post( $id, $post ) {
 
 			if ( preg_match( '/_wp_old_slug/', $key ) )
 				continue;
-				
+
 			$key = apply_filters( 'wpbs_draft_to_publish_postmeta_filter', $key );
 
 			delete_post_meta( $org_id, $key );
 			$values = get_post_custom_values($key, $id );
 			foreach ( $values as $value ) {
-				add_post_meta( $org_id, $key, $value );
+				add_post_meta( $org_id, $key, maybe_unserialize($value) );
 			}
 		}
 
@@ -212,7 +212,7 @@ function wpbs_save_post( $id, $post ) {
 //			}
 //		}
 
-		$args = array( 'post_type' => 'attachment', 'numberposts' => -1, 'post_status' => null, 'post_parent' => $id ); 
+		$args = array( 'post_type' => 'attachment', 'numberposts' => -1, 'post_status' => null, 'post_parent' => $id );
 		$attachments = get_posts( $args );
 		if ($attachments) {
 			foreach ( $attachments as $attachment ) {
@@ -249,7 +249,7 @@ function wpbs_save_post( $id, $post ) {
 					$value = get_post_meta( $attachment->ID, $key, true );
 
 					delete_post_meta( $org_id, $key );
-					add_post_meta( $org_id, $key, $value );
+					add_post_meta( $org_id, $key, maybe_unserialize($value) );
 				}
 			}
 		}
